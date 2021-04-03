@@ -45,7 +45,7 @@ jobs:
       run: ./gradlew GameTest
       
     - name: Upload Test Reports Folder
-        uses: actions/upload-artifact@v2
-        with:
-          name: testReport
-          path: /
+      uses: actions/upload-artifact@v2
+      with:
+        name: testReport
+        path: /
