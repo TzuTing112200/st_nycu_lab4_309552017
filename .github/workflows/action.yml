@@ -25,7 +25,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew compileJava
   
   test:
     needs: compile
@@ -43,7 +43,7 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     - name: Test Gradle
-      run: ./gradlew GameTest
+      run: ./gradlew test
       
     - name: Upload Test Reports Folder
       uses: actions/upload-artifact@v2
