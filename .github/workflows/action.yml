@@ -94,8 +94,8 @@ jobs:
         name: buildJar
         path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
 
-    - name: Release
-      uses: softprops/action-gh-release@v1 --tag=push
+    - name: Release --tag=push
+      uses: softprops/action-gh-release@v1
       with:
         files: buildJar
       env:
