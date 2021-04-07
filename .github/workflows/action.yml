@@ -73,7 +73,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: buildJar
-        path: build/libs/*.jar
+        path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
   
   release:
     needs: assemble
@@ -92,12 +92,12 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: buildJar
-        path: build/libs/*.jar
+        path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
 
     - name: Release
-        uses: softprops/action-gh-release@v1
-        if: startsWith(github.ref, 'refs/heads/release/')
-        with:
-          files: buildJar
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
+      if: startsWith(github.ref, 'refs/heads/release/')
+      with:
+        files: buildJar
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
