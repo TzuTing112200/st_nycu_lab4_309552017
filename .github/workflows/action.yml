@@ -95,8 +95,7 @@ jobs:
         path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
 
     - name: Release
-      uses: softprops/action-gh-release@v1
-      if: startsWith(github.ref, 'refs/heads/release/')
+      uses: softprops/action-gh-release@v1 --tag=push
       with:
         files: buildJar
       env:
