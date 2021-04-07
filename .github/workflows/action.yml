@@ -98,6 +98,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: buildJar
+        files: build/libs/*.jar
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
