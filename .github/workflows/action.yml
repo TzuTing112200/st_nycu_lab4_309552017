@@ -76,6 +76,7 @@ jobs:
         path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
   
   release:
+    if: ${{ github.ref == 'refs/tags/*' }}
     needs: assemble
     name: Release
 
@@ -96,7 +97,6 @@ jobs:
 
     - name: Release
       uses: softprops/action-gh-release@v1
-      if: ${{ github.ref == 'refs/tags/push' }}
       with:
         files: buildJar
       env:
