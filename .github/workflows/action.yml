@@ -73,10 +73,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: buildJar
-        path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+        path: build/libs/*.jar
   
   release:
-    if: ${{ github.ref == 'refs/tags/*' }}
+    if: ${{ github.ref == 'refs/tags/' }}
     needs: assemble
     name: Release
 
@@ -93,7 +93,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: buildJar
-        path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+        path: build/libs/*.jar
 
     - name: Release
       uses: softprops/action-gh-release@v1
