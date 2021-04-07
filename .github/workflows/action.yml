@@ -44,7 +44,7 @@ jobs:
       run: chmod +x gradlew
     - name: Test Gradle
       run: ./gradlew test
-      
+    - run: sudo npm install -g package@version
     - name: Upload Test Reports Folder
       uses: actions/upload-artifact@v2
       with:
