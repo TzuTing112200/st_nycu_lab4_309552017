@@ -1,6 +1,6 @@
 # This workflow will build a Java project with Gradle
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-# test
+
 name: Action
 
 on:
@@ -76,7 +76,7 @@ jobs:
         path: build/libs/*.jar
   
   release:
-    if: ${{ github.ref == 'refs/tags/' }}
+    if: startsWith(github.event.ref, 'refs/tags/')
     needs: assemble
     name: Release
 
@@ -100,4 +100,8 @@ jobs:
       with:
         files: build/libs/*.jar
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: actions/upload-release-asset@v1.0.1
+      with:
+        asset_path: build/libs/*.jar
+        asset_content_type: application/jar
