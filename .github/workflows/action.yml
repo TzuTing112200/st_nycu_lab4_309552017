@@ -91,7 +91,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: buildJar
-        path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+        path: st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
 
     # - name: Upload Asset
     #   uses: actions/upload-release-asset@v1
@@ -104,6 +104,6 @@ jobs:
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+        files: st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
