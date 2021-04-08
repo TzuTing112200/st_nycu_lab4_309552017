@@ -91,19 +91,19 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: buildJar
-        path: st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+        path: build/libs/*.jar
 
     # - name: Upload Asset
     #   uses: actions/upload-release-asset@v1
     #   env:
     #     GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
     #   with:
-    #     asset_path: build/libs/st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
+    #     asset_path: build/libs/*.jar
     #     asset_content_type: application/jar
 
     - name: Release
       uses: softprops/action-gh-release@v1
-      with:
-        files: st_nycu_lab4_309552017-1.0-SNAPSHOT.jar
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        files: build/libs/*.jar
