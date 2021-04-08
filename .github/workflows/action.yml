@@ -6,6 +6,8 @@ name: Action
 on:
   push:
     branches: [ main ]
+    tags:
+      - 't*'
   #pull_request:
     #branches: [ main ]
 
